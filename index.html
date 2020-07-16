@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/css/pixyCharsModifier.css" />
+    <link rel="stylesheet" href="src/css/pixyChars.css" />
+    <title>Pixy Chars</title>
+  </head>
+  <body>
+    <div class="preview-container">
+        <div class="container">
+          <div class="pixy-chars" id="pixy-chars"></div>
+          <div class="pixy-chars" id="pixy-chars-2"></div>
+          <div class="pixy-chars" id="pixy-chars-3"></div>
+        </div>
+      </div>
+    </div>
+      <script src="src/js/pixyChars.js"></script>
+      <script>
+        function getRandomColor() {
+          let letters = '0123456789ABCDEF';
+          let color = '#';
+          for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+          }
+          return color;
+        }
+
+        const options = {
+          targetContainer: "#pixy-chars",
+          characters: "Hi there",
+          options: null
+        }
+        
+        const Px = new PixyChars(options);
+
+        const px2Options = {
+          targetContainer: "#pixy-chars-2",
+          characters: "welcome to",
+          options: {
+            colors: {
+              blockBorderColor: getRandomColor()
+            }
+          }
+        }
+
+        const Px2 = new PixyChars(px2Options)
+
+        const px3Options = {
+          targetContainer: "#pixy-chars-3",
+          characters: "♥ pixy chars ♥",
+           options: {
+            colors: {
+              blockBorderColor: getRandomColor()
+            }
+          }
+        }
+
+        const Px3 = new PixyChars(px3Options)
+
+      </script>
+  </body>
+</html>
