@@ -8,6 +8,7 @@
     <title>Pixy Chars</title>
   </head>
   <body>
+    <h2 class="announcement">Further development in progress for a fully customisable experience</h2>
     <div class="preview-container">
         <div class="container">
           <div class="pixy-chars" id="pixy-chars"></div>
@@ -26,11 +27,18 @@
           }
           return color;
         }
+        function getRandomPx(min=3, max=7) {
+          return `${Math.floor(Math.random() * (max - min + 1)) + min}px`
+        }
 
         const options = {
           targetContainer: "#pixy-chars",
           characters: "Hi there",
-          options: null
+          options: {  
+            blocksDims: {
+              height: getRandomPx(), 
+              width: getRandomPx(), 
+            },}
         }
         
         const Px = new PixyChars(options);
@@ -39,11 +47,16 @@
           targetContainer: "#pixy-chars-2",
           characters: "welcome to",
           options: {
+            blocksDims: {
+              height: getRandomPx(), 
+              width: getRandomPx(), 
+            },
             colors: {
               blockBorderColor: getRandomColor()
             }
           }
         }
+        console.log(px2Options)
 
         const Px2 = new PixyChars(px2Options)
 
@@ -51,6 +64,10 @@
           targetContainer: "#pixy-chars-3",
           characters: "♥ pixy chars ♥",
            options: {
+               blocksDims: {
+              height: getRandomPx(), 
+              width: getRandomPx(), 
+            },
             colors: {
               blockBorderColor: getRandomColor()
             }

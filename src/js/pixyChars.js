@@ -79,7 +79,6 @@ class PixyChars {
         opts[option] = options[option];
       }
     }
-
     this.updateChars = (characters) => {
       this.trgt.innerHTML = "";
       this.createPixyChars(characters);
@@ -117,8 +116,9 @@ class PixyChars {
               // determines the class of the block depending whether it is an empty block or not
               blockClass = block === "o" ? "on" : "off";
               newBlock.classList.add(blockClass, "block");
+              newBlock.style.borderWidth = `${opts.blocksDims.width} ${opts.blocksDims.height}`;
               if (newBlock.classList.contains("on")) {
-                newBlock.style.borderColor = this.opts.colors.blockBorderColor;
+                newBlock.style.borderColor = opts.colors.blockBorderColor;
               }
               newCharRow.appendChild(newBlock);
             });
